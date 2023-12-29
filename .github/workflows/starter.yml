@@ -1,0 +1,36 @@
+name: ci-fullstack-workflow
+
+# Ensure the workflow runs on schedule (Sunday at 0:00) and on push to the main branch
+on:
+  
+
+#Use a matrix strategy to use Node.js versions 16.x and 18.x
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+
+    steps:
+      # Check out the code from the repository.
+      - uses: 
+      # Set up a Node.js environment using the specified node version.
+      - uses: 
+        with:
+          node-version: 
+
+      # Install the dependencies.
+      - run: 
+
+      # Run the tests.
+      - run: 
+
+      # Run the linter.
+      - run: 
+
+      # Send a console message at completion.
+      - run: |
+          echo "Hello ${{github.actor}}. You pushed to ${{github.repository}} at $(date)."
+
+        

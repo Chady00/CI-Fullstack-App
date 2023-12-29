@@ -1,0 +1,21 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "Node.js backend for Uda-Craft app",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha test.js",
+        "lint": "eslint ."
+    },
+    "dependencies": {
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "chai": "^4.3.7",
+        "chai-http": "^4.3.0",
+        "eslint": "^8.41.0",
+        "mocha": "^10.2.0",
+        "supertest": "^6.3.3"
+    }
+}
