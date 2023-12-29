@@ -7,7 +7,7 @@ on:
     - cron: '0 0 * * 0'
   push:
     branches: 
-      - master
+      - main
 
 #Use a matrix strategy to use Node.js versions 16.x and 18.x
 jobs:
