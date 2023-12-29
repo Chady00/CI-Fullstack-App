@@ -9,7 +9,7 @@ on:
     - cron: '0 0 * * 0'
         
   
-#Use a matrix strategy to use Node.js versions 16.x and 18.x
+# Use a matrix strategy to use Node.js versions 16.x and 18.x
 jobs:
   build:
 
@@ -33,11 +33,12 @@ jobs:
       # Run the tests.
       - run: cd backend && npm test
 
+      # Create ESLint configuration file.
+      - run: cd backend && npx eslint --init
+
       # Run the linter.
       - run: cd backend && npm run lint
 
       # Send a console message at completion.
       - run: |
           echo "Hello ${{github.actor}}. You pushed to ${{github.repository}} at $(date)."
-
-        
