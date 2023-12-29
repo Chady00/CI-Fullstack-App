@@ -21,7 +21,7 @@ jobs:
 
     steps:
       # Check out the code from the repository.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       # Set up a Node.js environment using the specified node version.
       - uses: actions/setup-node@v4
         with:
