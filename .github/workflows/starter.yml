@@ -42,7 +42,7 @@ jobs:
       - name: Install ESLint dependencies
         run: |
           cd backend
-          npm install eslint-config-airbnb-base eslint-plugin-import --save-dev
+          npm install eslint-config-airbnb-base eslint-plugin-import prettier --save-dev
 
       - name: Run ESLint
         run: |
