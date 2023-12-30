@@ -44,6 +44,11 @@ jobs:
           cd backend
           npm install eslint-config-airbnb-base eslint-plugin-import prettier --save-dev
 
+      - name : Install ESLint prettier config
+        run: |
+          cd backend
+          npm install --save-dev eslint-config-prettier eslint-plugin-prettier
+
       - name: Run ESLint
         run: |
           cd backend
