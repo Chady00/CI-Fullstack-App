@@ -29,7 +29,6 @@ jobs:
       # Create ESLint configuration file.
       - run: cd backend && npm install eslint --save-dev
       # Run the linter.
-      - name: linting
       - run: cd backend && npx eslint .
       # Send a console message at completion.
       - run: |
