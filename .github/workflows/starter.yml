@@ -27,9 +27,10 @@ jobs:
       # Run the tests.
       - run: cd backend && npm test
       # Create ESLint configuration file.
-      - run: cd backend && npx eslint --init
+      - run: cd backend && npm install eslint --save-dev
       # Run the linter.
-      - run: cd backend && npm run lint
+      - name: linting
+      - run: cd backend && npx eslint .
       # Send a console message at completion.
       - run: |
           echo "Hello ${{github.actor}}. You pushed to ${{github.repository}} at $(date)."
