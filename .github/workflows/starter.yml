@@ -1,14 +1,18 @@
 name: ci-fullstack-workflow
 
+# Ensure the workflow runs on schedule (Sunday at 0:00) and on push to the main branch
 on:
   push:
     branches:
       - main
   schedule:
     - cron: '0 0 * * 0'
-
+        
+  
+# Use a matrix strategy to use Node.js versions 16.x and 18.x
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,44 +20,25 @@ jobs:
         node-version: [16.x, 18.x]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js environment
-        uses: actions/setup-node@v3
+      # Check out the code from the repository.
+      - uses: actions/checkout@v3
+      # Set up a Node.js environment using the specified node version.
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: |
-          cd backend
-          npm ci
+      # Install the dependencies.
+      - run: cd backend && npm ci
 
-      - name: Run tests
-        run: |
-          cd backend
-          npm test
+      # Run the tests.
+      - run: cd backend && npm test
 
-      - name: Create ESLint configuration file
-        run: |
-          cd backend
-          npx eslint --init
+      # Create ESLint configuration file.
+      - run: cd backend && npx eslint --init
 
-      - name: Install ESLint dependencies
-        run: |
-          cd backend
-          npm install eslint-config-airbnb-base eslint-plugin-import prettier --save-dev
+      # Run the linter.
+      - run: cd backend && npm run lint
 
-      - name : Install ESLint prettier config
-        run: |
-          cd backend
-          npm install --save-dev eslint-config-prettier eslint-plugin-prettier
-
-      - name: Run ESLint
-        run: |
-          cd backend
-          npm run lint
-
-      - name: Console message at completion
-        run: |
-          echo "Hello ${{ github.actor }}. You pushed to ${{ github.repository }} at $(date)."
+      # Send a console message at completion.
+      - run: |
+          echo "Hello ${{github.actor}}. You pushed to ${{github.repository}} at $(date)."
