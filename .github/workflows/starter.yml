@@ -26,13 +26,16 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
+    
       # Install the dependencies.
       - run: cd backend && npm ci
 
       # Run the tests.
       - run: cd backend && npm test
 
+      # Clear npm cache
+      - run: npm cache clean --force
+      
       # Add ESLint to project as developer package
       - run: cd backend && npm install eslint --save-dev
       
