@@ -35,7 +35,10 @@ jobs:
 
       # Add ESLint to project as developer package
       - run: cd backend && npm install eslint --save-dev
-
+      
+      # Add airbnb to project as developer package
+      - run: cd backend && npm install --save-dev eslint-config-airbnb-base
+      
       # Add Prettier to project as dev package
       - run: cd backend && npm install --save-dev prettier
 
