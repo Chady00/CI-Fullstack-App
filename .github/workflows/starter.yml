@@ -33,11 +33,17 @@ jobs:
       # Run the tests.
       - run: cd backend && npm test
 
-      # Create ESLint configuration file.
-      - run: cd backend && npx eslint --init
+      # Add ESLint to project as developer package
+      - run: cd backend && npm install eslint --save-dev
+
+      # Add Prettier to project as dev package
+      - run: cd backend && npm install --save-dev prettier
+
+      # Install plugin for prettier as developer package
+      - run: npm install --save-dev eslint-plugin-prettier
 
       # Run the linter.
-      - run: cd backend && npm run lint
+      - run: cd backend && npx eslint .
 
       # Send a console message at completion.
       - run: |
