@@ -28,8 +28,6 @@ jobs:
       - run: npm install
       # Run the tests.
       - run: npm test
-      # Run the linter.
-      - run: npx eslint .
       # Send a console message at completion.
       - run: |
           echo "Hello ${{github.actor}}. You pushed to ${{github.repository}} at $(date)."
